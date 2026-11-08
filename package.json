@@ -1,0 +1,26 @@
+{
+  "name": "live-chat-system",
+  "version": "1.0.0",
+  "description": "High-Velocity Live Chat & HelpDesk System with Real-Time Collision Locking, Multi-Admin RBAC & Ingestion",
+  "scripts": {
+    "start:all": "node scripts/start-all.js",
+    "start:backend": "cd server-dotnet && dotnet run",
+    "start:customer": "cd client && npm run dev:customer",
+    "start:team": "cd client && npm run dev:team",
+    "start:admin": "cd client && npm run dev:core",
+    "start:super": "cd client && npm run dev:super",
+    "dev:backend": "cd server-dotnet && dotnet run",
+    "dev:super": "cd client && npm run dev:super",
+    "dev:core": "cd client && npm run dev:core",
+    "dev:team": "cd client && npm run dev:team",
+    "dev:customer": "cd client && npm run dev:customer",
+    "test:qa": "node server-dotnet/Tests/qa_verify.js",
+    "build:server": "cd server-dotnet && dotnet build",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:server && npm run build:client",
+    "publish:monsterasp": "node scripts/publish-monsterasp.js"
+  },
+  "keywords": ["live-chat", "helpdesk", "collision-locking", "websockets", "react", "rbac"],
+  "author": "",
+  "license": "ISC"
+}

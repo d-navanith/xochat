@@ -1,0 +1,35 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:super": "vite --port 5720",
+    "dev:core": "vite --port 5120",
+    "dev:team": "vite --port 5121",
+    "dev:customer": "vite --port 3002",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@microsoft/signalr": "^10.0.11",
+    "@tailwindcss/vite": "^4.3.3",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.63.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "socket.io-client": "^4.8.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.89.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.5"
+  }
+}

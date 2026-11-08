@@ -1,0 +1,37 @@
+# Node & Frontend dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build and distribution outputs
+client/dist/
+server/dist/
+publish-monsterasp/
+*.zip
+
+# .NET / C# Build Artifacts
+server-dotnet/bin/
+server-dotnet/obj/
+**/bin/
+**/obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & Environment
+logs/
+*.log
+.env
+.env.local
+.env.*.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
