@@ -115,7 +115,7 @@ public class AiAssistantService : IAiAssistantService
             FastRepliesCount = Math.Max(liveRepliesCount, 12),
             SlaAdherencePercent = 98.4,
             RatingScore = 4.9,
-            VelocityBadge = avgLatency < 60 ? "Fast Responder (<60s SLA)" : "Standard Logistics Dispatcher"
+            VelocityBadge = avgLatency < 60 ? "Fast Responder (<60s SLA)" : "Active Support Agent"
         };
 
         // 5. Four Exact Video 0:00:03 Attachment Dashboard Datasets
@@ -319,25 +319,25 @@ public class AiAssistantService : IAiAssistantService
         string u = user.Username.ToLower();
         string title = u switch
         {
-            "murdock" => "Senior Live Chat Specialist & Freight Dispatcher",
-            "lisa" => "Enterprise Account Manager & Customer Resolution Lead",
-            "john" => "Operations Dispatcher & Night Logistics Coordinator",
-            _ => user.Role == UserRoles.CoreAdmin ? "Core System Administrator" : "Live Customer Support Specialist"
+            "murdock" => "Senior Live Chat Specialist",
+            "lisa" => "Customer Support Lead",
+            "john" => "Live Support Agent",
+            _ => user.Role == UserRoles.CoreAdmin ? "System Administrator" : "Live Chat Specialist"
         };
 
         var specs = u switch
         {
-            "murdock" => new List<string> { "Transatlantic Freight", "Customs Clearance", "Urgent Lane Dispatches", "Container Logistics" },
-            "lisa" => new List<string> { "Enterprise Billing", "High-Value Cargo", "Dispute Mediation", "Key Accounts" },
-            "john" => new List<string> { "Overnight Fleet Routing", "Off-Peak Triage", "Vessel Telemetry", "Carrier Re-allocations" },
+            "murdock" => new List<string> { "Inbound Inquiries", "Customer Support", "Fast SLA", "Collision Locking" },
+            "lisa" => new List<string> { "Account Management", "Customer Retention", "Escalations", "Quality Assurance" },
+            "john" => new List<string> { "Technical Support", "Off-Peak Coverage", "Live Triage", "Ticket Resolution" },
             _ => new List<string> { "Customer Inquiries", "General Support", "Single-Reply SLA", "Collision Locking" }
         };
 
         string shift = u switch
         {
-            "murdock" => "Morning / Dispatch Shift (08:00 - 17:00 EST)",
-            "lisa" => "European Midday Shift (10:00 - 19:00 CET)",
-            "john" => "Night Shift (20:00 - 05:00 UTC)",
+            "murdock" => "Morning Shift (08:00 - 17:00 EST)",
+            "lisa" => "Day Shift (10:00 - 19:00 EST)",
+            "john" => "Evening Shift (14:00 - 23:00 EST)",
             _ => "Standard Support Rotation (09:00 - 18:00 Local)"
         };
 
@@ -363,63 +363,63 @@ public class AiAssistantService : IAiAssistantService
         {
             return new TeamMemberDutyDto
             {
-                Summary = "Murdock serves as the lead tactical responder for customer inquiries on the live chat network. He manages urgent dispatch validations, monitors container clearances, answers rate quotes, and provides immediate operational confirmations under the strict single-reply policy.",
+                Summary = "Handles incoming customer chats, answers inquiries, and provides rapid first-turn support under the strict single-reply policy.",
                 PrimaryDuties = new List<string>
                 {
-                    "Extracts and validates shipping manifests directly from customer inquiries",
-                    "Resolves transatlantic route and customs clearance inquiries with single-turn precision",
-                    "Coordinates real-time vehicle dispatch updates and scheduled departures",
-                    "Enforces zero-collision claim locks on assigned conversations to prevent dual replies"
+                    "Responds to inbound customer inquiries in real time",
+                    "Provides accurate first-turn answers to customer questions",
+                    "Maintains sub-minute response SLA on active conversations",
+                    "Enforces collision locks to ensure zero duplicate replies"
                 },
-                ScopedChannels = new List<string> { "Live Chat Port 5121", "Customer Web Portal (3002)", "Air & Maritime Logistics" },
-                OperationalStatus = "Active Dispatcher"
+                ScopedChannels = new List<string> { "Live Chat Portal", "Customer Queue" },
+                OperationalStatus = "Active on Live Chat"
             };
         }
         else if (u == "lisa")
         {
             return new TeamMemberDutyDto
             {
-                Summary = "Lisa leads enterprise customer communications and contract resolution. She handles VIP cargo inquiries, expedited shipment escalations, and cross-border billing inquiries.",
+                Summary = "Leads customer communications, handles escalated support inquiries, and assists customers with account onboarding.",
                 PrimaryDuties = new List<string>
                 {
-                    "Direct communication with enterprise accounts regarding scheduled departures",
-                    "Negotiates lane pricing and freight contracts in the CRM pipeline",
-                    "Reviews carrier documentation and guarantees customer delivery SLAs",
-                    "Maintains 100% compliance with single-reply limit protocols"
+                    "Handles customer support escalations and account inquiries",
+                    "Ensures high satisfaction and timely inquiry resolution",
+                    "Monitors team response quality and adheres to single-reply SLA",
+                    "Assists clients with live platform guidance"
                 },
-                ScopedChannels = new List<string> { "Live Chat Port 5121", "Enterprise Priority Queue", "Intermodal Freight" },
-                OperationalStatus = "Active Dispatcher"
+                ScopedChannels = new List<string> { "Live Chat Portal", "Priority Queue" },
+                OperationalStatus = "Active on Live Chat"
             };
         }
         else if (u == "john")
         {
             return new TeamMemberDutyDto
             {
-                Summary = "John oversees off-peak and overnight dispatch flows. He handles vessel tracking, late-night freight updates, and routes emergency cargo inquiries to active carriers.",
+                Summary = "Provides customer support coverage, triage for pending inquiries, and assists customers with technical live chat questions.",
                 PrimaryDuties = new List<string>
                 {
-                    "Night shift incoming customer message triage and response",
-                    "Vessel positioning and tracking notifications",
-                    "Fleet status confirmations and overnight ETA updates",
-                    "Strict enforcement of conversation claim locks"
+                    "Live triage and fast reply to pending customer inquiries",
+                    "Answers technical inquiries and platform questions",
+                    "Maintains single-turn reply compliance across all chats",
+                    "Collaborates with support team on customer requests"
                 },
-                ScopedChannels = new List<string> { "Live Chat Port 5121", "Global Maritime Desk" },
-                OperationalStatus = "Standby Dispatcher"
+                ScopedChannels = new List<string> { "Live Chat Portal", "General Support" },
+                OperationalStatus = "Active on Live Chat"
             };
         }
 
         return new TeamMemberDutyDto
         {
-            Summary = $"@{user.Username} ({user.Name}) manages live customer chat interactions, answering incoming inquiries and processing logistics requests according to company policy.",
+            Summary = $"@{user.Username} ({user.Name}) manages live customer chat interactions, answering incoming inquiries under company response policy.",
             PrimaryDuties = new List<string>
             {
                 "Monitors pending chat queue and claims conversations without collision",
-                "Answers customer inquiries with accurate load and shipment data",
+                "Answers customer inquiries with fast first-turn precision",
                 "Adheres strictly to the single-reply rule before transitioning inquiries to Replied",
-                "Logs notes and updates CRM pipeline deal stages"
+                "Maintains high response speed and customer satisfaction"
             },
-            ScopedChannels = new List<string> { "Live Chat Port 5121", "General Customer Inquiries" },
-            OperationalStatus = "Active Team Member"
+            ScopedChannels = new List<string> { "Live Chat Portal" },
+            OperationalStatus = "Active on Live Chat"
         };
     }
 }

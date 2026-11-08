@@ -39,8 +39,8 @@
   <img src="docs/screenshots/03-team-replied.png" alt="Team Members Replied Tab with Date Proof" width="800" />
 </p>
 
-### 4. AI Team Intelligence Copilot & Surveillance
-> *Super Admin executive suite featuring live scraped agent dossiers, SLA response calculations, and CRM pipelines.*
+### 4. Team Member Performance & Activity Overview
+> *Executive overview featuring live agent presence, response speed SLAs (<60s), single-reply compliance, and customer inquiry logs.*
 <p align="center">
   <img src="docs/screenshots/04-ai-intelligence.png" alt="AI Team Intelligence Assistant" width="800" />
 </p>

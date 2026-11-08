@@ -113,7 +113,7 @@ export const AdminWorkspaceView: React.FC<AdminWorkspaceViewProps> = ({
               {activeTab === 'add_user' && 'Add Team Member'}
               {activeTab === 'audit' && 'Full Audit Trail'}
               {activeTab === 'crm_pipeline' && 'Leads & CRM Pipeline'}
-              {activeTab === 'ai_assistant' && 'Team Intelligence & Performance'}
+              {activeTab === 'ai_assistant' && 'Team Member Performance & Activity'}
             </h2>
             <p className="text-xs text-gray-500 font-medium">
               {activeTab === 'surveillance' && 'Real-time extraction of live team interventions, response latencies & conversation states.'}
@@ -121,7 +121,7 @@ export const AdminWorkspaceView: React.FC<AdminWorkspaceViewProps> = ({
               {activeTab === 'add_user' && 'Provision team members and administrators.'}
               {activeTab === 'audit' && 'Ledger of security claims, collision events, and message dispatches.'}
               {activeTab === 'crm_pipeline' && 'Visual Kirrivan Kanban & Table deal flow with multi-stage progression and customer intelligence.'}
-              {activeTab === 'ai_assistant' && 'Operational scope, message volume calculations, and client performance dashboards.'}
+              {activeTab === 'ai_assistant' && 'Monitor team member activity, response speeds, and handled live chat conversations.'}
             </p>
           </div>
         </div>

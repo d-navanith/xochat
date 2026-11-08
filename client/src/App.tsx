@@ -59,7 +59,12 @@ export function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   // Left sidebar is the unified navigation bar for all commands (Inbox, Replied, Admin Commands)
-  const [sidebarActiveTab, setSidebarActiveTab] = useState<SidebarActiveTab>('inbox');
+  const [sidebarActiveTab, setSidebarActiveTab] = useState<SidebarActiveTab>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get('tab');
+    if (tabParam) return tabParam as SidebarActiveTab;
+    return 'inbox';
+  });
   const [currentTab, setCurrentTab] = useState<'all' | 'replied' | 'mine'>('all');
   const [selectedDate, setSelectedDate] = useState('10.28.2026');
   const [inboxAllConvs, setInboxAllConvs] = useState<Conversation[]>([]);
