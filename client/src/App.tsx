@@ -65,7 +65,14 @@ export function App() {
     if (tabParam) return tabParam as SidebarActiveTab;
     return 'inbox';
   });
-  const [currentTab, setCurrentTab] = useState<'all' | 'replied' | 'mine'>('all');
+  const [currentTab, setCurrentTab] = useState<'all' | 'replied' | 'mine'>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const filterParam = params.get('filter');
+    if (filterParam === 'mine' || filterParam === 'all' || filterParam === 'replied') {
+      return filterParam;
+    }
+    return 'all';
+  });
   const [selectedDate, setSelectedDate] = useState('10.28.2026');
   const [inboxAllConvs, setInboxAllConvs] = useState<Conversation[]>([]);
   const [inboxMineConvs, setInboxMineConvs] = useState<Conversation[]>([]);
